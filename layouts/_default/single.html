@@ -4,10 +4,10 @@
   <h1 class="post-title">{{ .Title }}</h1>
   <span class="post-date">{{ .Site.Params.DateForm | default "Jan 2, 2006" | .Date.Format }} / {{.WordCount}} ord</span>
   {{ .Content }}
-  <span class="post-meta">Sist endret <a href={{.Site.Params.Github.PostUrl}}{{.File.LogicalName}}>{{ .Lastmod.Format "02.01.2006 15:04 MST" }}</a></span>
+  <span class="post-meta">Sist endret <a href={{.Site.Params.Github.PostUrl}}{{.File.LogicalName}}>{{ .Lastmod.Format "02.01.2006 15:04 MST" }}</a>.</span>
   {{- if .Site.DisqusShortname -}}
   <hr>
-  <h2>Comments</h2>
+  <h2>Kommentarer</h2>
   {{ template "_internal/disqus.html" . }}
   {{ end -}}
 </div>
