@@ -15,7 +15,7 @@
   <span class="post-meta">
     {{ if eq .Type "post" }}
       kategorisert som: {{ range .Params.kategorier }}{{ . }} {{ end }}
-      <br>tagget: {{ range .Params.tags }} <a href= "/tags/{{ . | urlize }}">#{{ . }}</a>{{ end }}
+      <br>tagget: {{ range .Params.tags }} <a href= "{{ $.Site.BaseURL }}/tags/{{ . | urlize }}">#{{ . }}</a>{{ end }}
     {{ end }}
   </span>
   
