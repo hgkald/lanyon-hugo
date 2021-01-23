@@ -3,11 +3,17 @@
 <div class="post">
   <h1 class="post-title">{{ .Title }}</h1>
   <ul id="list">
-    {{ range .Data.Pages }}
-    <li>{{ .Site.Params.DateForm | default "Jan 2, 2006" | .Date.Format }} -
-      <a href="{{ .Permalink }}">{{ .Title }}</a> 
-    </li>
-    {{ end }}
+      {{ range .Data.Pages }}
+        <li>
+          {{ if eq .Type "post" }}
+            {{ .Site.Params.DateForm | default "Jan 2, 2006" | .Date.Format }} -
+            <a href="{{ .Permalink }}">{{ .Title }}</a>
+	  {{ else }}
+            <a href="{{ .Permalink }}">{{ .Title }}</a>
+	  {{ end }}
+        </li>
+      {{ end }}
+
   </ul>
 </div>
 
