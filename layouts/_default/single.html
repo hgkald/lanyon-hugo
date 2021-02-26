@@ -19,11 +19,16 @@
     {{ end }}
   </span>
   
-  {{- if .Site.DisqusShortname -}}
+  <!-- {{- if .Site.DisqusShortname -}}
   <hr>
   <h2>Kommentarer</h2>
   {{ template "_internal/disqus.html" . }}
   {{ end -}}
+  -->
+
+  <hr>
+  <h2>Kommentarer</h2>
+  {{ partial "staticman.html" . }}
 </div>
 
 {{ partial "default_foot.html" . }}
