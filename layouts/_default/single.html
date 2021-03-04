@@ -6,7 +6,7 @@
     {{ if eq .Type "post" }}
       {{ .Site.Params.DateForm | default "Jan 2, 2006" | .Date.Format }} 
       / {{.WordCount}} ord 
-      / <a href={{.Site.Params.Github.PostUrl}}{{.File.LogicalName}}>vis endringer</a>
+      / {{ range .Params.kategorier }}{{ . }} {{ end }}
     {{ end }}
   </span>
 
@@ -14,7 +14,11 @@
 
   <span class="post-meta">
     {{ if eq .Type "post" }}
-      kategorisert som: {{ range .Params.kategorier }}{{ . }} {{ end }}
+      skrivetid: {{ $.Param "firstversion.time" }}min, ekskludert redigering 
+      <br>vis: {{- if $.Param "firstversion.link" -}}
+        <a href="{{ $.Param "firstversion.link" }}"> første versjon</a> / 
+      {{ end -}}
+      <a href={{.Site.Params.Github.PostUrl}}{{.File.LogicalName}}> alle versjoner </a>
       <br>tagget: {{ range .Params.tags }} <a href= "{{ $.Site.BaseURL }}/tags/{{ . | urlize }}">#{{ . }}</a>{{ end }}
     {{ end }}
   </span>

@@ -7,7 +7,8 @@
   {{ range .Paginator.Pages }}
     <div class="post">
         <h1 class="post-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h1>
-	<span class="post-date">{{ .Site.Params.DateForm | default "Jan 2, 2006" | .Date.Format }} / {{.WordCount}} ord</span>
+	<span class="post-date">{{ .Site.Params.DateForm | default "Jan 2, 2006" | .Date.Format }} / {{.WordCount}} ord / {{ range .Params.kategorier }}{{ . }} {{ end }}
+</span>
         {{ .Summary }}
         {{ if .Truncated }}
         <!-- This <div> includes a read more link, but only if the summary is truncated... -->
