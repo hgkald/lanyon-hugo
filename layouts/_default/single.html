@@ -16,9 +16,9 @@
     {{ if eq .Type "post" }}
       skrivetid: {{ $.Param "firstversion.time" }}min, ekskludert redigering 
       <br>vis: {{- if $.Param "firstversion.link" -}}
-        <a href="{{ $.Param "firstversion.link" }}"> første versjon</a> / 
+        <a href="{{ $.Param "firstversion.link" }}" target="_blank"> første versjon</a> / 
       {{ end -}}
-      <a href={{.Site.Params.Github.PostUrl}}{{.File.LogicalName}}> alle versjoner </a>
+      <a href={{.Site.Params.Github.PostUrl}}{{.File.LogicalName}} target="_blank"> alle versjoner </a>
       <br>tagget: {{ range .Params.tags }} <a href= "{{ $.Site.BaseURL }}/tags/{{ . | urlize }}">#{{ . }}</a>{{ end }}
     {{ end }}
   </span>
