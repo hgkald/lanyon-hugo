@@ -14,12 +14,15 @@
 
   <span class="post-meta">
     {{ if eq .Type "post" }}
-      skrivetid: {{ $.Param "firstversion.time" }}min, ekskludert redigering 
-      <br>vis: {{- if $.Param "firstversion.link" -}}
-        <a href="{{ $.Param "firstversion.link" }}" target="_blank"> første versjon</a> / 
+      {{- if $.Param "firstversion.time" -}}
+        skrivetid: {{ $.Param "firstversion.time" }}min, ekskludert redigering<br> 
       {{ end -}}
-      <a href={{.Site.Params.Github.PostUrl}}{{.File.LogicalName}} target="_blank"> alle versjoner </a>
-      <br>tagget: {{ range .Params.tags }} <a href= "{{ $.Site.BaseURL }}/tags/{{ . | urlize }}">#{{ . }}</a>{{ end }}
+      vis: 
+        {{- if $.Param "firstversion.link" -}}
+          <a href="{{ $.Param "firstversion.link" }}" target="_blank"> første versjon</a> / 
+        {{ end -}}
+	<a href={{.Site.Params.Github.PostUrl}}{{.File.LogicalName}} target="_blank"> alle versjoner </a><br>
+      tagget: {{ range .Params.tags }} <a href= "{{ $.Site.BaseURL }}/tags/{{ . | urlize }}">#{{ . }}</a>{{ end }}
     {{ end }}
   </span>
   
