@@ -18,8 +18,8 @@
         skrivetid: {{ $.Param "firstversion.time" }}, ekskludert redigering<br> 
       {{ end -}}
       vis: 
-        {{- if $.Param "firstversion.link" -}}
-          <a href="{{ $.Param "firstversion.link" }}" target="_blank"> første versjon</a> / 
+        {{- if $.Param "firstversion.githash" -}}
+          <a href={{.Site.Params.Github.Url}}blob/{{ $.Param "firstversion.githash"}}/content/{{.File.Path}} target="_blank"> første versjon</a> / 
         {{ end -}}
 	<a href={{.Site.Params.Github.PostUrl}}{{.File.LogicalName}} target="_blank"> alle versjoner </a><br>
       tagget: {{ range .Params.tags }} <a href= "{{ $.Site.BaseURL }}/tags/{{ . | urlize }}">#{{ . }}</a>{{ end }}
