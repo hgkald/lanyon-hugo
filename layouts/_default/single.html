@@ -33,9 +33,11 @@
   {{ end -}}
   -->
 
-  <hr>
-  <h2>Kommentarer</h2>
-  {{ partial "staticman.html" . }}
+  {{ if eq .Type "post" }}
+    <hr>
+    <h2>Kommentarer</h2>
+    {{ partial "staticman.html" . }}
+  {{ end -}}
 </div>
 
 {{ partial "default_foot.html" . }}
