@@ -45,12 +45,15 @@ html {
 }
 
 h1, h2, h3, h4, h5, h6, summary {
-  font-family: "Space Mono", Courier, monospace;
+  font-family: "Nothing You Could Do","Nixie One",  "Space Mono", Courier, monospace;
   font-weight: 400;
   color: #313131;
-  letter-spacing: -.025rem;
+  line-height: 90%;
 }
 
+h1, .post-date {
+  padding-left: 2.7rem
+}
 
 /*
  * Wrapper
@@ -325,7 +328,7 @@ a.sidebar-nav-item:focus {
 .post-date {
   display: block;
   margin-top: -.5rem;
-  margin-bottom: 1rem;
+  margin-bottom: 1.25rem;
   color: #9a9a9a;
 }
 
